@@ -62,6 +62,6 @@ std::vector<float> delBounds(std::vector<float> wanted_vtr, int64_t wanted_size,
 
     for (size_t i = 0; i < wanted_size; i++)
     {
-        if (wanted_vtr)
+        if (wanted_vtr) //comment test
     }
 }
