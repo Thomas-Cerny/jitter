@@ -58,7 +58,7 @@ int main()
 
     uint16_t interval_count[12] = {0};  //stores the amount of numbers in each interval
 
-    removeOutliers(wanted_vtr, mean, std_dev, interval_count, intervals, wanted_size);
+    //removeOutliers(wanted_vtr, mean, std_dev, interval_count, intervals, wanted_size);
 
     //print results to file output.txt
     printToFile(interval_count, intervals);
@@ -74,11 +74,13 @@ int main()
     std::cout << "Dispersion: " << dispersion << std::endl << std::endl;
 }
 
-//calculate mean of wanted_vtr
+//calculate mean of wanted_vtr - CHECK FOR FUNCTION IMPLEMENTATION ERROR
+/*
 float calculateMean(const std::vector<float>& wanted_vtr, uint16_t wanted_size)
 {
     return std::accumulate(wanted_vtr.begin(), wanted_vtr.end(), 0) / wanted_size;
 }
+
 
 //calculate standard deviation of wanted_vtr
 float calculateStdDev(const std::vector<float>& wanted_vtr, float mean, uint16_t wanted_size)
@@ -90,6 +92,7 @@ float calculateStdDev(const std::vector<float>& wanted_vtr, float mean, uint16_t
 
     return std::sqrt(sum / wanted_size);
 }
+*/
 
 //remove outliers from wanted_vtr, calculate intervals and sort wanted_vtr into the intervals
 void removeOutliers(const std::vector<float>& wanted_vtr, float mean, float std_dev, uint16_t interval_count[12], float intervals[11], uint16_t wanted_size)
@@ -109,15 +112,16 @@ void removeOutliers(const std::vector<float>& wanted_vtr, float mean, float std_
 
     std::cout << "============================================================" << std::endl;
 
-    calculateIntervals(result, intervals);
+    //calculateIntervals(result, intervals);
 
     for (const auto& i : outliers)
         result.push_back(i);
 
-    sortIntervals(result, intervals, wanted_size, interval_count);
+    //sortIntervals(result, intervals, wanted_size, interval_count);
 }
 
-//calculates the outliers for 10 intervals
+//calculates the outliers for 10 intervals - CHECK FOR LOGICAL CALCULATION ERROR
+/*
 void calculateIntervals(const std::vector<float>& result, float intervals[11])
 {
     float min_outlier = *std::min_element(result.begin(), result.end());
@@ -129,6 +133,7 @@ void calculateIntervals(const std::vector<float>& result, float intervals[11])
     for (size_t i = 1; i < 11; i++)
         intervals[i] = intervals[0] + i * (intervals[10] - intervals[0]) / 10;
 }
+*/
 
 //calculate dispersion of wanted_vtr
 float calculateDispersion(const std::vector<float>& wanted_vtr)
@@ -147,7 +152,8 @@ float calculateJitter(const std::vector<float>& wanted_vtr, uint16_t wanted_size
     return sum / (wanted_size - 1);
 }
 
-//sorting wanted_vtr into the already defined intervals
+//sorting wanted_vtr into the already defined intervals - CHECK FOR LOGICAL ERROR
+/*
 void sortIntervals(const std::vector<float>& result, float intervals[11], uint16_t wanted_size, uint16_t interval_count[12])
 {
     for (size_t i = 0; i < wanted_size; i++)
@@ -170,6 +176,7 @@ void sortIntervals(const std::vector<float>& result, float intervals[11], uint16
             }
         }
 }
+*/
 
 void printToFile(uint16_t interval_count[12], float intervals[11])
 {
