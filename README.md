@@ -12,5 +12,5 @@ It also calculates the jitter, mean and dispersion.
 <p>
 The .cpp file has to be compiled with a C++ compiler supporting at least C++11.
 Since the data type "short" is used to avoid redundant calculation of ping value count, the maximum number of ping messages is 65535.
-The calculated intervals, mean and dispersion are rounded to 2 decimal places. The jitter is not rounded since it is often way too small.
+The values of calculated intervals, mean and dispersion are rounded to 2 decimal places. Jitter value is not rounded since it is often way too small.
 </p>
